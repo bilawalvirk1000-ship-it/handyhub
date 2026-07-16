@@ -17,7 +17,7 @@ export function generateMetadata({ params }) {
   if (!product) return {};
   const title = product.name;
   const description = product.shortDesc;
-  const image = product.images?.[0] || "/og-default.svg";
+  const image = product.images?.[0] || "/og-default.png";
   return {
     title,
     description,
