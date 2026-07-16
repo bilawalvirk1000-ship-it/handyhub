@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function ProductGallery({ images, alt }) {
   const [active, setActive] = useState(0);
-  const list = images && images.length ? images : ["/og-default.svg"];
+  const list = images && images.length ? images : ["/og-default.png"];
 
   return (
     <div>

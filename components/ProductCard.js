@@ -3,7 +3,7 @@ import { formatPrice, savings } from "@/lib/format";
 
 export default function ProductCard({ product }) {
   const { amount, percent } = savings(product.price, product.salePrice);
-  const image = product.images?.[0] || "/og-default.svg";
+  const image = product.images?.[0] || "/og-default.png";
 
   return (
     <div className="card flex flex-col overflow-hidden transition hover:-translate-y-0.5 hover:shadow-lg">
