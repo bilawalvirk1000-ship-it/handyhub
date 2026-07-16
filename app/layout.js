@@ -6,7 +6,7 @@ import MetaPixel from "@/components/MetaPixel";
 import site from "@/config/site";
 
 export const metadata = {
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL("https://www.handyhub.cc"),
   title: {
     default: `${site.storeName} | ${site.tagline}`,
     template: `%s | ${site.storeName}`,
@@ -20,13 +20,21 @@ export const metadata = {
     description: site.tagline,
     siteName: site.storeName,
     type: "website",
-    images: ["/og-default.svg"],
+    url: "https://www.handyhub.cc",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: `${site.storeName} — ${site.tagline}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: site.storeName,
     description: site.tagline,
-    images: ["/og-default.svg"],
+    images: ["/og-default.png"],
   },
 };
 

@@ -10,7 +10,21 @@ export const metadata = {
   openGraph: {
     title: site.storeName,
     description: site.tagline,
-    images: ["/og-default.svg"],
+    url: "https://www.handyhub.cc",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: `${site.storeName} — ${site.tagline}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.storeName,
+    description: site.tagline,
+    images: ["/og-default.png"],
   },
 };
 
@@ -134,105 +148,31 @@ function WhyBuy() {
 }
 
 function Testimonials() {
-  const reviews = [
-    {
-      name: "Ayesha Malik",
-      location: "Model Town, Lahore",
-      product: "Portable Neck Fan",
-      verified: true,
-      date: "2 weeks ago",
-      lang: "ur",
-      dir: "rtl",
-      quote:
-        "بہت شاندار پروڈکٹ ہے، لاہور کی گرمی میں یہ نیک فین بہت کام آیا۔ ڈیلیوری بھی جلدی ہوئی اور کیش پر پیمنٹ کا آپشن بہت اچھا ہے۔ دوستوں کو بھی recommend کیا ہے۔",
-    },
-    {
-      name: "Muhammad Bilal",
-      location: "D Ground, Faisalabad",
-      product: "Portable Neck Fan",
-      verified: true,
-      date: "1 week ago",
-      lang: "en",
-      dir: "ltr",
-      quote:
-        "Very nice fan sir. i buy for my shop, faisalabad garmi bohat ziada hai. battery long time chalti hai and no sound. delivery on time and cash payment easy. thanks handyhub.",
-    },
-    {
-      name: "Zainab Hussain",
-      location: "Gulberg III, Lahore",
-      product: "Portable Neck Fan",
-      verified: true,
-      date: "5 days ago",
-      lang: "en",
-      dir: "ltr",
-      quote:
-        "Ordered the neck fan for my daily commute and it has been a game changer. The bladeless design means no hair getting caught and the motor is quiet enough to wear at work. Delivered within three days and paying on delivery made me feel safe trying a new store.",
-    },
-  ];
   return (
     <section className="container-page py-14">
-      <div className="flex items-end justify-between gap-4">
-        <div>
-          <h2 className="text-3xl font-extrabold text-ink">What buyers say</h2>
-          <p className="mt-2 text-ink-muted">Real feedback from customers across Pakistan.</p>
+      <div className="card mx-auto max-w-2xl p-8 text-center sm:p-10">
+        <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-brand/10 text-brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6">
+            <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V6a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z" />
+          </svg>
         </div>
-        <div className="hidden text-right sm:block">
-          <div className="flex justify-end text-accent" aria-label="4.9 out of 5 stars">
-            {"★★★★★".split("").map((s, idx) => (
-              <span key={idx}>{s}</span>
-            ))}
-          </div>
-          <p className="text-sm font-semibold text-ink">4.9 out of 5</p>
-          <p className="text-xs text-ink-muted">Based on recent customer orders</p>
+        <h2 className="mt-4 text-2xl font-extrabold text-ink sm:text-3xl">Be our first reviewer</h2>
+        <p className="mx-auto mt-3 max-w-md text-ink-soft">
+          {site.storeName} is a new store just getting started. Place an order today and share your honest feedback with us on WhatsApp. Real reviews from real customers will appear here soon.
+        </p>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <Link href="#products" className="btn-primary">
+            Shop the picks
+          </Link>
+          <a
+            href={`https://wa.me/${site.whatsappNumber}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline"
+          >
+            Ask us on WhatsApp
+          </a>
         </div>
-      </div>
-
-      <div className="mt-8 grid gap-5 sm:grid-cols-3">
-        {reviews.map((r, i) => (
-          <figure key={i} className="card flex flex-col p-5">
-            <div className="flex items-center justify-between">
-              <div className="flex text-accent" aria-label="5 star rating">
-                {"★★★★★".split("").map((s, idx) => (
-                  <span key={idx}>{s}</span>
-                ))}
-              </div>
-              {r.verified && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="h-3 w-3">
-                    <path d="M5 12l5 5L20 7" />
-                  </svg>
-                  Verified
-                </span>
-              )}
-            </div>
-
-            <blockquote
-              lang={r.lang}
-              dir={r.dir}
-              className={`mt-3 text-ink-soft ${r.dir === "rtl" ? "text-right leading-loose" : "leading-relaxed"}`}
-            >
-              “{r.quote}”
-            </blockquote>
-
-            <figcaption className="mt-4 flex items-center gap-3 border-t border-slate-100 pt-4">
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand/10 text-sm font-bold text-brand">
-                {r.name
-                  .split(" ")
-                  .map((w) => w[0])
-                  .slice(0, 2)
-                  .join("")}
-              </span>
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-semibold text-ink">{r.name}</p>
-                <p className="truncate text-xs text-ink-muted">{r.location}</p>
-              </div>
-              <p className="whitespace-nowrap text-[11px] text-ink-muted">{r.date}</p>
-            </figcaption>
-            <p className="mt-2 text-[11px] text-ink-muted">
-              Purchased: <span className="font-medium text-ink-soft">{r.product}</span>
-            </p>
-          </figure>
-        ))}
       </div>
     </section>
   );
